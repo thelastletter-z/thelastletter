@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f0e9">
+  <meta name="description" content="The Last Letter — a creative portfolio exploring visual stories, thoughtful words, and the art of making meaning.">
+  <title>The Last Letter — Creative Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f3f0e9;
+      --ink: #20211e;
+      --muted: #696a63;
+      --line: rgba(32,33,30,.2);
+      --accent: #a33d2e;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --mono: "DM Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    .wrap { width: min(1160px, calc(100% - 44px)); margin: 0 auto; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:24px 0; border-bottom:1px solid var(--line); }
+    .brand { font: 500 12px var(--mono); text-transform:uppercase; letter-spacing:.13em; text-decoration:none; }
+    .nav { display:flex; gap:24px; font-size:12px; }
+    .nav a { text-decoration:none; color:var(--muted); }
+    .nav a:hover, .text-link:hover { color:var(--accent); }
+    .eyebrow { font: 11px var(--mono); letter-spacing:.13em; text-transform:uppercase; color:var(--muted); }
+    .hero { padding: clamp(60px, 12vw, 145px) 0 76px; }
+    .hero-grid { display:grid; grid-template-columns: 1.4fr .6fr; gap:50px; align-items:end; }
+    h1 { font: 500 clamp(62px, 12vw, 150px)/.88 var(--serif); letter-spacing:-.065em; margin:24px 0 30px; max-width:850px; }
+    h1 em { color:var(--accent); font-weight:500; }
+    .intro { max-width:520px; font-size:clamp(16px, 2vw, 20px); line-height:1.65; color:#484943; }
+    .hero-aside { border-left:1px solid var(--line); padding-left:22px; padding-bottom:5px; }
+    .hero-aside p { font: 13px/1.8 var(--mono); color:var(--muted); }
+    .hero-aside .mark { font: italic 72px/.9 var(--serif); color:var(--accent); margin:0 0 20px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 18px; border:1px solid var(--ink); text-decoration:none; font-size:12px; font-weight:600; transition:background .2s,color .2s; }
+    .button.primary { background:var(--ink); color:var(--paper); }
+    .button:hover { background:var(--accent); color:white; border-color:var(--accent); }
+    .section { padding:70px 0; border-top:1px solid var(--line); }
+    .section-head { display:flex; justify-content:space-between; align-items:baseline; gap:20px; margin-bottom:28px; }
+    h2 { font:500 clamp(34px, 6vw, 64px)/1 var(--serif); letter-spacing:-.04em; margin:10px 0 0; }
+    .section-note { color:var(--muted); font:11px var(--mono); text-transform:uppercase; letter-spacing:.08em; }
+    .projects { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:34px 22px; }
+    .project { min-width:0; }
+    .project-art { position:relative; overflow:hidden; aspect-ratio: 1.22/1; display:flex; align-items:center; justify-content:center; padding:24px; }
+    .art-one { background:#d9d4c8; }
+    .art-two { background:#b8c0b2; }
+    .art-three { background:#d5b9a9; }
+    .art-four { background:#292b27; color:#f3f0e9; }
+    .art-label { position:absolute; top:16px; left:16px; font:10px var(--mono); letter-spacing:.1em; text-transform:uppercase; }
+    .poster { font:500 clamp(32px,6vw,76px)/.85 var(--serif); letter-spacing:-.06em; text-align:center; max-width:90%; }
+    .poster em { color:var(--accent); }
+    .art-two .poster { font-style:italic; }
+    .art-three .poster { font-size:clamp(28px,4.7vw,58px); transform:rotate(-5deg); }
+    .art-four .poster { font-size:clamp(36px,6vw,72px); }
+    .art-four .poster em { color:#d6a38d; }
+    .project-meta { display:flex; justify-content:space-between; gap:16px; margin-top:14px; align-items:baseline; }
+    .project-meta h3 { margin:0; font:500 20px var(--serif); }
+    .project-meta span { color:var(--muted); font:10px var(--mono); text-transform:uppercase; white-space:nowrap; }
+    .project p { margin:8px 0 0; color:var(--muted); font-size:13px; line-height:1.65; max-width:500px; }
+    .about-grid { display:grid; grid-template-columns:.7fr 1.3fr; gap:70px; }
+    .about-quote { font:italic clamp(28px,4vw,46px)/1.2 var(--serif); margin:0; }
+    .about-copy { max-width:620px; color:#4e4f49; font-size:15px; line-height:1.9; }
+    .about-copy p:first-child { margin-top:0; }
+    .values { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:30px; }
+    .value { border-top:1px solid var(--line); padding-top:13px; }
+    .value b { display:block; font:500 17px var(--serif); margin-bottom:7px; }
+    .value span { color:var(--muted); font-size:12px; line-height:1.6; }
+    .contact { background:var(--ink); color:var(--paper); padding:70px 0; }
+    .contact .eyebrow, .contact .section-note { color:#b9b8ae; }
+    .contact-grid { display:grid; grid-template-columns:1fr auto; align-items:end; gap:30px; }
+    .contact h2 { max-width:720px; font-size:clamp(42px,8vw,90px); }
+    .contact h2 em { color:#d6a38d; }
+    .contact-copy { color:#c9c8bf; max-width:450px; line-height:1.7; font-size:14px; }
+    .contact .button { border-color:var(--paper); color:var(--paper); }
+    .contact .button:hover { background:var(--paper); color:var(--ink); }
+    footer { display:flex; justify-content:space-between; gap:18px; padding:22px 0; font:10px var(--mono); text-transform:uppercase; letter-spacing:.07em; color:var(--muted); }
+    .text-link { text-underline-offset:4px; }
+    @media (max-width:700px) {
+      .wrap { width:min(100% - 32px, 560px); }
+      .topbar { padding:18px 0; align-items:flex-start; }
+      .nav { gap:12px; font-size:11px; }
+      .hero { padding:72px 0 58px; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns:1fr; gap:30px; }
+      .hero-aside { border-left:0; border-top:1px solid var(--line); padding:18px 0 0; display:flex; align-items:center; gap:20px; }
+      .hero-aside .mark { font-size:54px; margin:0; }
+      .hero-aside p { margin:0; }
+      .section { padding:54px 0; }
+      .section-head { align-items:flex-start; flex-direction:column; gap:10px; }
+      .projects { grid-template-columns:1fr; gap:28px; }
+      .project-art { aspect-ratio:1.15/1; }
+      .values { grid-template-columns:1fr; gap:20px; }
+      .contact { padding:58px 0; }
+      footer { flex-direction:column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { transition:none !important; } }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#home">The Last Letter <span aria-hidden="true">/</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="home">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">A personal creative portfolio · Est. in progress</div>
+          <h1>The Last<br><em>Letter.</em></h1>
+          <p class="intro">Drawn from who I am, the language’s final stroke, and the belief that the last word should always be the truest.</p>
+          <div class="actions">
+            <a class="button primary" href="#work">Explore selected work ↘</a>
+            <a class="button" href="#about">A little about me</a>
+          </div>
+        </div>
+        <aside class="hero-aside">
+          <div class="mark" aria-hidden="true">Z.</div>
+          <p>WORDS WITH WEIGHT.<br>IMAGES WITH INTENTION.<br>IDEAS THAT STAY.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wrap section" id="work">
+      <div class="section-head">
+        <div><div class="eyebrow">01 / Selected experiments</div><h2>Work in progress.</h2></div>
+        <div class="section-note">A starting collection — replace with your real work</div>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="project-art art-one">
+            <span class="art-label">01 — Visual identity</span>
+            <div class="poster">MAKE<br>IT <em>MEAN</em><br>SOMETHING.</div>
+          </div>
+          <div class="project-meta"><h3>Words That Stay</h3><span>Concept / Typography</span></div>
+          <p>A typographic study on the words we choose, the ones we keep, and the ones that change a room.</p>
+        </article>
+        <article class="project">
+          <div class="project-art art-two">
+            <span class="art-label">02 — Campaign direction</span>
+            <div class="poster">A little<br>more <em>human.</em></div>
+          </div>
+          <div class="project-meta"><h3>Human, Always</h3><span>Campaign / Art direction</span></div>
+          <p>A warm, people-first creative direction built around small moments and honest connection.</p>
+        </article>
+        <article class="project">
+          <div class="project-art art-three">
+            <span class="art-label">03 — Editorial study</span>
+            <div class="poster">NOTES<br>FROM THE<br><em>IN-BETWEEN</em></div>
+          </div>
+          <div class="project-meta"><h3>The In-Between</h3><span>Editorial / Layout</span></div>
+          <p>An imagined print feature exploring memory, identity, and the details that make a story feel lived-in.</p>
+        </article>
+        <article class="project">
+          <div class="project-art art-four">
+            <span class="art-label">04 — Poster concept</span>
+            <div class="poster">AFTER<br>HOURS<em>.</em></div>
+          </div>
+          <div class="project-meta"><h3>After Hours</h3><span>Poster / Creative concept</span></div>
+          <p>A bold, nocturnal poster concept designed to feel intimate, cinematic, and just a little unpredictable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="about">
+      <div class="about-grid">
+        <div>
+          <div class="eyebrow">02 / The person behind it</div>
+          <p class="about-quote">“The final stroke is never just an ending. Sometimes, it is the part that makes everything mean something.”</p>
+        </div>
+        <div class="about-copy">
+          <p><strong>The Last Letter</strong> is a creative space for ideas shaped by language, visual culture, and the small details people remember.</p>
+          <p>I’m interested in work that feels considered rather than crowded: clear ideas, expressive visuals, meaningful words, and stories that know what they want to say. This portfolio is a living collection of experiments, collaborations, and projects still becoming.</p>
+          <p><em>Make this paragraph yours.</em> Add your background, the kind of creative work you do, the tools you use, and what you want people to remember about working with you.</p>
+          <div class="values">
+            <div class="value"><b>Thoughtful</b><span>Every detail has a reason to be there.</span></div>
+            <div class="value"><b>Expressive</b><span>Personality without losing clarity.</span></div>
+            <div class="value"><b>Human</b><span>Work that connects before it impresses.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <div class="eyebrow">03 / The next chapter</div>
+          <h2>Have a good idea?<br><em>Let’s give it a last word.</em></h2>
+          <p class="contact-copy">For creative collaborations, project inquiries, or simply to start a conversation, get in touch. Replace the sample email below with your preferred contact address before publishing.</p>
+        </div>
+        <div class="actions">
+          <a class="button" href="mailto:hello@example.com?subject=Creative%20inquiry">Email The Last Letter ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© <span id="year"></span> The Last Letter</span>
+    <span>Made with intention, not noise.</span>
+    <a class="text-link" href="#home">Back to top ↑</a>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
